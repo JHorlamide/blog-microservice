@@ -50,7 +50,7 @@ app.get("/posts", (req, res) => {
 app.listen(8002, async () => {
   console.log(`Query service running on port ${8002}...`);
 
-  const res = await axios.get("http://localhost:8005/events");
+  const res = await axios.get("http://event-bus-srv:8005/events");
   for (let event of res.data) {
     console.log("Processing event", event.type);
 
