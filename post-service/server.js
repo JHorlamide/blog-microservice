@@ -17,7 +17,7 @@ app.post("/api/posts", async (req, res) => {
   posts[id] = { id, title };
 
   // Send created post to the event bus
-  await axios.post("http://localhost:8005/events", {
+  await axios.post("http://event-bus-srv:8005/events", {
     type: "PostCreated",
     data: { id, title },
   });

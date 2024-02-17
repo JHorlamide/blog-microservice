@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: post-depl
+  name: moderation-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: posts
+      app: moderation
   template:
     metadata:
       labels:
-        app: posts
+        app: moderation
     spec:
       containers:
-        - name: posts
-          image: olamidejubril/posts
+        - name: moderation
+          image: olamidejubril/moderation
           imagePullPolicy: IfNotPresent
           resources:
             limits:
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: posts-clusterip-srv
+  name: moderation-srv
 spec:
   selector:
-    app: posts
+    app: moderation
   ports:
-  - name: posts
-    port: 8000
+  - name: moderation
+    port: 8003
     protocol: TCP
-    targetPort: 8000
+    targetPort: 8003
