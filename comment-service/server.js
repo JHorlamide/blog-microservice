@@ -20,7 +20,7 @@ app.post("/api/posts/:id/comments", async (req, res) => {
   commentsByPostId[req.params.id] = comments;
 
   // Send created comment to the event bus
-  await axios.post("http://localhost:8005/events", {
+  await axios.post("http://event-bus-srv:8005/events", {
     type: "CommentCreated",
     data: {
       content,
