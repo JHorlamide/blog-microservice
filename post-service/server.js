@@ -35,6 +35,5 @@ app.post("/api/events", (req, res) => {
 });
 
 app.listen(8000, () => {
-  console.log("V30");
   console.log(`Post service running on port ${8000}...`);
 });
