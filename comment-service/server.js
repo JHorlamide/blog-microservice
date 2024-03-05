@@ -11,7 +11,7 @@ app.use(express.json());
 // In-memory Database
 const commentsByPostId = {};
 
-app.post("/api/posts/:id/comments", async (req, res) => {
+app.post("/posts/:id/comments", async (req, res) => {
   const commentId = randomBytes(4).toString("hex");
   const { content } = req.body;
 
@@ -33,7 +33,7 @@ app.post("/api/posts/:id/comments", async (req, res) => {
   res.status(201).send(comments);
 });
 
-app.post("/api/events", async (req, res) => {
+app.post("/events", async (req, res) => {
   console.log("Received Event: ", req.body.type);
   const { type, data } = req.body;
 
@@ -61,7 +61,7 @@ app.post("/api/events", async (req, res) => {
   res.send({ status: "OK" });
 });
 
-app.get("/api/posts/:id/comments", (req, res) => {
+app.get("/posts/:id/comments", (req, res) => {
   res.send(commentsByPostId[req.params.id] || []);
 });
 

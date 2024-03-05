@@ -8,7 +8,7 @@ const Posts = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:8000/api/posts", { title });
+      await axios.post("http://localhost:8000/posts", { title });
       setTitle("");
     } catch (error) {
       console.log(error.message);

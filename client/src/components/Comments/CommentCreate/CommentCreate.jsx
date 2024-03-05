@@ -13,7 +13,7 @@ const CommentCreate = ({ postId }) => {
 
     try {
       await axios.post(
-        `http://localhost:8001/api/posts/${postId}/comments`,
+        `http://localhost:8001/posts/${postId}/comments`,
         {
           content: comment,
         }

@@ -11,7 +11,7 @@ app.use(express.json());
 // In-memory Database
 const posts = {};
 
-app.post("/api/posts", async (req, res) => {
+app.post("/posts", async (req, res) => {
   const id = randomBytes(4).toString("hex");
   const { title } = req.body;
   posts[id] = { id, title };
@@ -25,11 +25,11 @@ app.post("/api/posts", async (req, res) => {
   res.status(201).send({ status: "OK", postId: posts[id] });
 });
 
-app.get("/api/posts", (req, res) => {
+app.get("/posts", (req, res) => {
   res.send(posts);
 });
 
-app.post("/api/events", (req, res) => {
+app.post("/events", (req, res) => {
   console.log("Received Event: ", req.body.type);
   res.send({ status: "OK" });
 });

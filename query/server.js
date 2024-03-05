@@ -36,7 +36,7 @@ function handleEvent(type, data) {
   }
 }
 
-app.post("/api/events", (req, res) => {
+app.post("/events", (req, res) => {
   const { type, data } = req.body;
 
   handleEvent(type, data);

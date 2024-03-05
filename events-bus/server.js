@@ -11,10 +11,10 @@ app.post("/events", (req, res) => {
 
   events.push(event);
 
-  axios.post("http://posts-clusterip-srv:8000/api/events", event); //post service
-  axios.post("http://comments-srv:8001/api/events", event); //comment service
-  axios.post("http://query-srv:8002/api/events", event); // query service
-  axios.post("http://moderation-srv:8003/api/events", event); // moderation service
+  axios.post("http://posts-clusterip-srv:8000/events", event); //post service
+  axios.post("http://comments-srv:8001/events", event); //comment service
+  axios.post("http://query-srv:8002/events", event); // query service
+  axios.post("http://moderation-srv:8003/events", event); // moderation service
 
   res.send({ status: "OK" });
 });
